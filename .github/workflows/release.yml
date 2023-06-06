@@ -1,4 +1,8 @@
 on:
+  push:
+    branches: [ "master" ]
+    tags:
+      - 'v*.*.*'
   pull_request:
     branches: [ "master" ]
     tags:
@@ -13,16 +17,16 @@ jobs:
     steps: 
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Github ref
-        run: echo ${{ github.action_ref }}
+      - name: Run_number->
+        run: echo ${{ github.run_number }}
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.action_ref }}
-          release_name: Release ${{ github.action_ref }}
+          tag_name: ${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
           body: |
             Changes in this Release
             - First Change
