@@ -2,7 +2,7 @@ on:
   pull_request:
     branches: [ "master" ]
     tags:
-      - 'v*'
+      - 'v*.*.*'
     
 name: Create Release
 
@@ -13,6 +13,8 @@ jobs:
     steps: 
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Github ref
+        run: echo "$GITHUB_REF"
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -27,3 +29,4 @@ jobs:
             - Second Change
           draft: false
           prerelease: false
+          
