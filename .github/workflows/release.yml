@@ -1,18 +1,29 @@
-name: "Releases"
 on:
   pull_request:
     branches: [ "master" ]
+    tags:
+      - 'v*'
+    
+name: Create Release
 
-changelog:
-  categories:
-    - title: Breaking Changes 🛠
-      labels:
-        - Semver-Major
-        - breaking-change
-    - title: Exciting New Features 🎉
-      labels:
-        - Semver-Minor
-        - enhancement
-    - title: Other Changes
-      labels:
-        - "*"
+jobs:
+  build:
+    name: Create Relese
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
+          prerelease: false
