@@ -1,3 +1,4 @@
 {
-    "MY_CONSTANT": "Hi"
+    "MY_CONSTANT": "Hi",
+    "SECOND_CONST": 1234
 }
