@@ -1,6 +1,5 @@
 name-template: 'v$RESOLVED_VERSION 🎉'
 tag-template: 'v$RESOLVED_VERSION'
-no-contributors-template: '$CONTRIBUTORS'
 categories:
   - title: '🚀 Features'
     labels:
