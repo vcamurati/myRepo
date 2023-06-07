@@ -4,7 +4,7 @@ categories:
   - title: '🚀 Features'
     labels:
       - 'feature'
-      - 'feat:'
+      - 'feat: '
       - 'feat'
       - 'enhancement'
   - title: '🐛 Bug Fixes'
