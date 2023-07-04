@@ -1,4 +1,5 @@
 {
     "MY_CONSTANT": "Hi",
-    "SECOND_CONST": 1234
+    "SECOND_CONST": 1234,
+    "CONST_A": "A"
 }
